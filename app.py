@@ -99,14 +99,11 @@ def focus_mode():
     """Focus mode page."""
     if "user" not in session:
         return redirect(url_for("login_page"))
-    email = session["user"]
-    username = email.split("@")[0] if "@" in email else email
     return f"""
-    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh">
-      <h1>🎯 Focus Mode</h1>
-      <p>Your focused work session starts now.</p>
-      <p>Timer: <strong>25:00</strong> (Pomodoro)</p>
-      <p><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
+    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <h1 style="font-size:28px;margin-bottom:16px">🎯 Focus Mode</h1>
+      <p style="font-size:18px;color:#9aa4b2">Coming Soon</p>
+      <p style="margin-top:30px"><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
     </div>
     """
 
@@ -116,16 +113,11 @@ def stats():
     """Statistics page."""
     if "user" not in session:
         return redirect(url_for("login_page"))
-    email = session["user"]
-    username = email.split("@")[0] if "@" in email else email
     return f"""
-    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh">
-      <h1>📊 Your Statistics</h1>
-      <p>Total Focus Time: <strong>12h 34m</strong></p>
-      <p>Distractions Blocked: <strong>89</strong></p>
-      <p>Sessions Completed: <strong>15</strong></p>
-      <p>Avg Session Duration: <strong>50m</strong></p>
-      <p><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
+    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <h1 style="font-size:28px;margin-bottom:16px">📊 Statistics</h1>
+      <p style="font-size:18px;color:#9aa4b2">Coming Soon</p>
+      <p style="margin-top:30px"><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
     </div>
     """
 
@@ -136,11 +128,10 @@ def settings():
     if "user" not in session:
         return redirect(url_for("login_page"))
     return f"""
-    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh">
-      <h1>⚙️ Settings</h1>
-      <p>Profile Settings, Notifications, Theme, Focus Duration</p>
-      <p style="color:#9aa4b2">Settings panel configuration coming soon...</p>
-      <p><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
+    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <h1 style="font-size:28px;margin-bottom:16px">⚙️ Settings</h1>
+      <p style="font-size:18px;color:#9aa4b2">Coming Soon</p>
+      <p style="margin-top:30px"><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
     </div>
     """
 
@@ -151,23 +142,23 @@ def blocked_apps():
     if "user" not in session:
         return redirect(url_for("login_page"))
     return f"""
-    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh">
-      <h1>🚫 Blocked Apps & Browsers</h1>
-      <p style="color:#9aa4b2;margin-bottom:20px;">Websites and applications blocked during focus mode:</p>
-      <div style="background:#0f1724;padding:20px;border-radius:10px;max-width:500px;margin:0 auto;text-align:left;color:#e6eef8">
-        <h3 style="margin-top:0;color:#7c5cff">Blocked Websites:</h3>
-        <ul style="list-style:none;padding:0">
-          <li>🔗 Facebook, Instagram, Twitter</li>
-          <li>🔗 Reddit, TikTok, YouTube</li>
-          <li>🔗 Netflix, Twitch, Discord</li>
-        </ul>
-        <h3 style="color:#4cc2ff">Blocked Applications:</h3>
-        <ul style="list-style:none;padding:0">
-          <li>📱 Telegram, WhatsApp, Slack</li>
-          <li>🎮 Steam, Epic Games Launcher</li>
-          <li>💬 VS Code Extensions (notifications)</li>
-        </ul>
-      </div>
+    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <h1 style="font-size:28px;margin-bottom:16px">🚫 Blocked Apps & Browsers</h1>
+      <p style="font-size:18px;color:#9aa4b2">Coming Soon</p>
+      <p style="margin-top:30px"><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
+    </div>
+    """
+
+
+@app.route("/history")
+def session_history():
+    """Session history page."""
+    if "user" not in session:
+        return redirect(url_for("login_page"))
+    return f"""
+    <div style="background:#071022;color:#e6eef8;padding:40px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+      <h1 style="font-size:28px;margin-bottom:16px">📝 Session History</h1>
+      <p style="font-size:18px;color:#9aa4b2">Coming Soon</p>
       <p style="margin-top:30px"><a href="/dashboard" style="color:#7c5cff;text-decoration:underline">Back to Dashboard</a></p>
     </div>
     """
