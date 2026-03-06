@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FocusGuard — Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .dashboard-welcome {
+      margin-bottom: 32px;
+    }
+
+    .dashboard-welcome h2 {
+      font-size: 24px;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .dashboard-welcome p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 4px 0 0 0;
+    }
+
+    .dashboard-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      color: #081226;
+      text-align: center;
+      min-height: 140px;
+    }
+
+    .dashboard-btn-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .dashboard-btn-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .dashboard-btn.focus {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(124,92,255,0.15);
+    }
+
+    .dashboard-btn.focus:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(124,92,255,0.25);
+    }
+
+    .dashboard-btn.stats {
+      background: linear-gradient(135deg, var(--accent-2), #00d9ff);
+      box-shadow: 0 8px 24px rgba(76,194,255,0.15);
+    }
+
+    .dashboard-btn.stats:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(76,194,255,0.25);
+    }
+
+    .dashboard-btn.settings {
+      background: linear-gradient(135deg, #a78bfa, var(--accent));
+      box-shadow: 0 8px 24px rgba(167,139,250,0.15);
+    }
+
+    .dashboard-btn.settings:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(167,139,250,0.25);
+    }
+
+    .dashboard-btn.blocked {
+      background: linear-gradient(135deg, #ff6b6b, #ff8c8c);
+      box-shadow: 0 8px 24px rgba(255,107,107,0.15);
+    }
+
+    .dashboard-btn.blocked:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255,107,107,0.25);
+    }
+
+    .dashboard-logout {
+      width: 100%;
+      padding: 12px;
+      background: #ff4444;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .dashboard-logout:hover {
+      background: #ff6666;
+    }
+
+    .dashboard-main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      .dashboard-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-btn {
+        min-height: 100px;
+        padding: 20px 12px;
+      }
+
+      .dashboard-btn-icon {
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+
+      .dashboard-btn-text {
+        font-size: 13px;
+      }
+
+      .dashboard-welcome h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true"></div>
+  <main class="page-container">
+    <div class="dashboard-main">
+      <section class="card">
+        <div class="dashboard-welcome">
+          <h2>Welcome back, {{ username }}!</h2>
+          <p>Stay focused and productive</p>
+        </div>
+
+        <div class="dashboard-buttons">
+          <a href="/focus" class="dashboard-btn focus">
+            <div class="dashboard-btn-icon">🎯</div>
+            <div class="dashboard-btn-text">Focus Mode</div>
+          </a>
+          <a href="/stats" class="dashboard-btn stats">
+            <div class="dashboard-btn-icon">📊</div>
+            <div class="dashboard-btn-text">Statistics</div>
+          </a>
+          <a href="/settings" class="dashboard-btn settings">
+            <div class="dashboard-btn-icon">✅</div>
+            <div class="dashboard-btn-text">Goals</div>
+          </a>
+          <a href="/blocked" class="dashboard-btn blocked">
+            <div class="dashboard-btn-icon">🚫</div>
+            <div class="dashboard-btn-text">Blocked Apps</div>
+          </a>
+          <a href="/history" class="dashboard-btn focus" style="grid-column: 1 / -1;">
+            <div class="dashboard-btn-icon">📝</div>
+            <div class="dashboard-btn-text">Session History</div>
+          </a>
+        </div>
+
+        <form action="/logout" method="post">
+          <button type="submit" class="dashboard-logout">Logout</button>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
